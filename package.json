@@ -1,0 +1,20 @@
+{
+  "name": "Node-Server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "engines": {
+    "node": "9.10.1",
+    "npm": "5.8.0"
+  },
+  "repository": "git@github.com:ElijahPrince73/Node-Server.git",
+  "author": "Elijah Prince <elijahprince73@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "nodemon": "^1.17.3"
+  }
+}
