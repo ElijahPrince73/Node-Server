@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
+require('./models/user');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI).then(
@@ -11,7 +12,6 @@ mongoose.connect(keys.mongoURI).then(
 		console.log(err);
 	}
 );
-
 
 const app = express()
 
