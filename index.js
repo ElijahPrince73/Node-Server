@@ -6,7 +6,7 @@ require('./services/passport');
 
 mongoose.connect(keys.mongoURI).then(
 	() => {
-		console.log('CONNECTED TO DATABASE');
+		console.log();
 	},
 	err => {
 		console.log(err);
