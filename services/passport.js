@@ -15,12 +15,13 @@ passport.use(new GoogleStrategy({
 	}).then((existingUser) => {
 		if (existingUser) {
 			// We already have a record with the given profile ID
-			console.log('alrady here');
+			done(null, existingUser)
 		} else {
 			// We dont have a record with this IF, , make a new user
 			new User({
-				googleId: profile.id
-			}).save()
+					googleId: profile.id
+				}).save()
+				.then(user => done(null, user))
 		}
 	})
 }))
