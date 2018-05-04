@@ -10,7 +10,17 @@ passport.use(new GoogleStrategy({
 	clientSecret: keys.googleClientSecret,
 	callbackURL: '/auth/google/callback'
 }, (accessToken, refreshToken, profile, done) => {
-	new User({
+	User.findOne({
 		googleId: profile.id
-	}).save()
+	}).then((existingUser) => {
+		if (existingUser) {
+			// We already have a record with the given profile ID
+			console.log('alrady here');
+		} else {
+			// We dont have a record with this IF, , make a new user
+			new User({
+				googleId: profile.id
+			}).save()
+		}
+	})
 }))
