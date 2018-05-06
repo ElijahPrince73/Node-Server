@@ -17,6 +17,7 @@ mongoose.connect(keys.mongoURI).then(
 
 const app = express()
 
+// Extreact cookie data
 app.use(
 	cookieSession({
 		maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -24,7 +25,9 @@ app.use(
 	})
 )
 
+// in order to use cookie sessions we need to start it
 app.use(passport.initialize())
+// creates persistent login sessions
 app.use(passport.session())
 
 require('./routes/auth-routes')(app);

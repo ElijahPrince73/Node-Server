@@ -5,19 +5,21 @@ const keys = require('../config/keys');
 
 const User = mongoose.model('users')
 
+// pulls user id out of cookie data
 passport.serializeUser((user, done) => {
 	console.log('serializeUser:', user);
 	done(null, user.id)
 })
 
+// Turns user id into a user
 passport.deserializeUser((id, done) => {
-	console.log('deserializeUser:', id);
 	User.findById(id)
 		.then((user) => {
 			done(null, user)
 		})
 })
 
+// creates a new user if not already in database
 passport.use(new GoogleStrategy({
 	clientID: keys.googleClientID,
 	clientSecret: keys.googleClientSecret,
