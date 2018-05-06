@@ -8,7 +8,7 @@ require('./services/passport');
 
 mongoose.connect(keys.mongoURI).then(
 	() => {
-		console.log();
+		console.log('CONNECTED');
 	},
 	err => {
 		console.log(err);
@@ -31,6 +31,10 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 require('./routes/auth-routes')(app);
+
+app.get('/', (req, res) => {
+	res.send("Welcome To My API")
+})
 
 const PORT = process.env.PORT || 3000
 
