@@ -7,7 +7,6 @@ const User = mongoose.model('users')
 
 // pulls user id out of cookie data
 passport.serializeUser((user, done) => {
-	console.log('serializeUser:', user);
 	done(null, user.id)
 })
 
