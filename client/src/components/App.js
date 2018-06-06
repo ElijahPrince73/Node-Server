@@ -4,11 +4,7 @@ import {
   Route
 } from 'react-router-dom';
 
-const Header = () => {
-  return (
-    <h2>Header</h2>
-  )
-}
+import Header from './header';
 
 const Dashboard = () => {
   return (
