@@ -6,7 +6,7 @@ import {
 // Action creator
 // Returns a function that makes a request and gets a response
 // After the response it will dispatch the action
-const fetchUser = () => {
+export const fetchUser = () => {
   return function(dispatch) {
     axios.get('/api/current_user')
       // Action and dispatch
@@ -14,5 +14,8 @@ const fetchUser = () => {
         type: FETCH_USER,
         payload: res
       }))
+      .catch((err) => {
+        console.log(err);
+      })
   }
 }
