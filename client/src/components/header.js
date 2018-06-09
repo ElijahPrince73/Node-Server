@@ -17,13 +17,13 @@ class Header extends Component {
       case false:
         return (
           <li>
-            <a href="/auth/google">Login With Google</a>
+            <a href='/auth/google'>Login With Google</a>
           </li>
         )
       default:
         return [
-          <li key="1"><Payments /></li>,
-          <li key="2"><a href="/api/logout">Logout</a> </li>
+          <li key='1'><Payments /></li>,
+          <li key='2'><a href='/api/logout'>Logout</a> </li>
         ]
     }
   }
@@ -31,14 +31,16 @@ class Header extends Component {
     return (
       <div>
         <nav>
-         <div className="nav-wrapper">
-           <Link
-             to={ this.props.auth ? '/surveys' : '/' }
-             className="left brand-logo"
-           >
-             Emaily
-          </Link>
-           <ul id="nav-mobile" className="right hide-on-med-and-down">
+         <div className='nav-wrapper'>
+           <div className='container'>
+             <Link
+               to={ this.props.auth ? '/surveys' : '/' }
+               className='left brand-logo'
+             >
+               Emaily
+            </Link>
+           </div>
+           <ul id='nav-mobile' className='right hide-on-med-and-down'>
              {this.renderContent()}
            </ul>
          </div>
