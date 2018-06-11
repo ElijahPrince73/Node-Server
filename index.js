@@ -7,6 +7,8 @@ const keys = require('./config/keys');
 require('./models/user');
 require('./services/passport');
 
+const PORT = process.env.PORT || 5000
+
 mongoose.connect(keys.mongoURI).then(
   () => {
     console.log('CONNECTED');
@@ -36,7 +38,17 @@ app.use(passport.session())
 require('./routes/auth-routes')(app);
 require('./routes/billingRoutes')(app);
 
-const PORT = process.env.PORT || 5000
+if (process.env.NODE_ENV === 'production') {
+  // Express will server production assets
+  // LIke our main.js or main.css files
+  app.use(express.static('client/build'))
+  // Express will serve the index.html file if the route is not recognized
+
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
+}
 
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
