@@ -21,7 +21,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(Navigation)
     return (
       <div className="container">
         <BrowserRouter>
