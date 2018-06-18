@@ -10,7 +10,7 @@ import {
 } from 'react-redux';
 import * as actions from '../actions';
 
-
+import Navigation from './Navigation';
 import Landing from './Landing';
 const Dashboard = () => <h2>Dashboard</h2>;
 const SurveyNew = () => <h2>SurveyNew</h2>;
@@ -21,11 +21,12 @@ class App extends Component {
   }
 
   render() {
+    console.log(Navigation)
     return (
       <div className="container">
         <BrowserRouter>
           <div>
-            
+            <Navigation />
             <Route exact path="/" component={Landing} />
             <Route exact path="/surveys" component={Dashboard} />
             <Route path="/surveys/new" component={SurveyNew} />
