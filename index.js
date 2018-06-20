@@ -36,8 +36,10 @@ app.use(passport.initialize())
 // creates persistent login sessions
 app.use(passport.session())
 
+/////////////// ROUTES ////////////////
 require('./routes/auth-routes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // Express will server production assets

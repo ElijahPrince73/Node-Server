@@ -9,7 +9,7 @@ const surveySchema = new Schema({
   body: String,
   subject: String,
   // This tells mongoose that the recipients will be a subdocument with an
-  // array of recipients
+  // will be a subdocument with an array of recipients
   recipients: [RecipientSchema],
   yes: {
     type: Number,
@@ -18,7 +18,14 @@ const surveySchema = new Schema({
   no: {
     type: Number,
     default: 0
-  }
+  },
+  // Sets up a relation between the survey and the user who created it
+  _user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  dateSent: Date,
+  lastResponded: Date
 })
 
 mongoose.model('surveys', surveySchema)
