@@ -10,6 +10,7 @@ class Mailer extends helper.Mail {
   }, content) {
     super();
 
+    this.sgApi = sendGrid(key.sendGridKey)
     this.from_email = new helper.Email('no-reply@emaily.com')
     this.subject = subject
     this.body = new helper.Content('text/html', content)
@@ -46,6 +47,17 @@ class Mailer extends helper.Mail {
       personalize.addTo(recipient)
     })
     this.addPersonalize(personalize)
+  }
+
+  async send() {
+    const request = this.sgApi.emptyRequest({
+      method: 'POST',
+      path: 'v3/mail/send',
+      body: this.toJSON()
+    })
+
+    const response = await this.sgApi.API(request)
+    return response
   }
 }
 
