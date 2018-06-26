@@ -27,5 +27,10 @@ module.exports = app => {
     })
     // Sends email
     const mailer = new Mailer(survey, surveyTemplate(survey))
+    mailer.send().then((value) => {
+      console.log(value);
+    }).catch((err) => {
+      console.log('ERROR:', JSON.stringify(err, undefined, 2));
+    })
   })
 }
