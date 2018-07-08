@@ -3,12 +3,11 @@
 
 import React from 'react';
 
-export default ({
-  input
-}) => {
+export default ({ input, label }) => {
   return (
     <div>
-      <input { ...input }/>
+      <label>{label}</label>
+      <input {...input} />
     </div>
-  )
-}
+  );
+};
