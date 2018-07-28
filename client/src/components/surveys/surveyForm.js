@@ -31,7 +31,7 @@ class SurveyForm extends Component {
 			<div>
 				<form onSubmit={this.props.handleSubmit(val => console.log(val))}>
 					{this.renderFields()}
-					<Link to="/surveys" className="red btn-flat left white-text">
+					<Link to="/surveys" className="red btn-flat left white">
 						Cancel
 					</Link>
 					<button className="teal btn-flat right white-text" type="submit">
@@ -44,6 +44,15 @@ class SurveyForm extends Component {
 	}
 }
 
+function validate(values) {
+	const errors = {};
+	if (!values.title) {
+		errors.title = 'Must Provide a Title';
+	}
+	return errors;
+}
+
 export default reduxForm({
+	validate,
 	form: 'surveyForm'
 })(SurveyForm);
