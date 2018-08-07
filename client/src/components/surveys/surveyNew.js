@@ -28,4 +28,4 @@ class SurveyNew extends Component {
 	}
 }
 
-export default SurveyNewy;
+export default SurveyNew;
