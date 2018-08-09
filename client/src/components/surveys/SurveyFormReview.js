@@ -2,9 +2,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import formFields from './formFields';
+import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions';
 
-const SurveyFormReview = ({ onCancel, formValues, submitSurvey }) => {
+const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
 	const reviewFields = formFields.map(({ name, label }) => {
 		return (
 			<div key={name}>
@@ -26,7 +27,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey }) => {
 			</button>
 			<button
 				className="green btn-flat right white-text"
-				onClick={() => submitSurvey(formValues)}
+				onClick={() => submitSurvey(formValues, history)}
 			>
 				Send Survey
 				<i className="material-icons right">email</i>
@@ -43,7 +44,9 @@ function mapStateToProps(state) {
 	};
 }
 // Making redux connect to our redux state and allowing it to use actions and then connect it the component
+
+// Adding withRouter function to gain access to the history object and redirect after send
 export default connect(
 	mapStateToProps,
 	actions
-)(SurveyFormReview);
+)(withRouter(SurveyFormReview));
