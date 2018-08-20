@@ -27,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "combine": "npm install && bpm run build",
+    "combine": "npm install && npm run build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
