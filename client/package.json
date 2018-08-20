@@ -10,7 +10,7 @@
       "target": "http://localhost:5000"
     }
   },
-  "dependencies": {
+  "dependencis": {
     "axios": "^0.18.0",
     "lodash": "^4.17.10",
     "materialize-css": "^1.0.0-rc.1",
