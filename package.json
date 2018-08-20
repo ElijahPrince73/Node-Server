@@ -14,7 +14,7 @@
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"yarn run server\" \"yarn run client\" \"yarn run webhook\"",
-    "heroku-postbuild": "cd client && yarn && yarn build",
+    "heroku-postbuild": "cd client && yarn && yarn start",
     "webhook": "./sendgrid_webhook.sh"
   },
   "dependencies": {
