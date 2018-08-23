@@ -15,7 +15,8 @@
     "client": "npm run start --prefix client",
     "dev": "concurrently \"yarn run server\" \"yarn run client\" \"yarn run webhook\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "webhook": "./sendgrid_webhook.sh"
+    "webhook": "./sendgrid_webhook.sh",
+    "production": "yarn && pm2 start index.js && cd client && yarn && yarn build"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
